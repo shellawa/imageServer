@@ -9,12 +9,13 @@ app.get("/imgen", async (req, res) => {
   const cid = req.query.cid
   let device = req.query.device
   if (!(device in KnownDevices)) device = "iPhone X"
-
+  console.log(`requesting https://ln.hako.vn/truyen/${mid}/${cid}`)
   const page = await capture.buffer(`https://ln.hako.vn/truyen/${mid}/${cid}`, {
     fullPage: true,
     type: "jpeg",
     emulateDevice: device
   })
+  console.log(`__Rendered https://ln.hako.vn/truyen/${mid}/${cid}`)
   res.end(page, "binary")
 })
 
