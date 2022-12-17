@@ -15,7 +15,7 @@ app.get("/imgen", async (req, res) => {
     type: "jpeg",
     emulateDevice: device
   })
-  res.end(page)
+  res.end(page, "binary")
 })
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
